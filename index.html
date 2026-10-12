@@ -165,7 +165,7 @@ const DB_REF = firebase.database().ref('plan_data');
 /* =========================================================
    本地保存（localStorage）
    ========================================================= */
-const LS_KEY='zhgl_plan_data_v1';
+const LS_KEY='zhgl_plan_data_v2';
 let saveTimer=null;
 const saveStatusEl=document.getElementById('saveStatus');
 
@@ -1012,6 +1012,9 @@ document.getElementById('btnExport').onclick=downloadExcel;
 
 /* ============ 初始化 ============ */
 (function init(){
+  localStorage.removeItem('zhgl_plan_data_v1');
+  localStorage.removeItem('zhgl_plan_deleted_v1');
+
   const t=today();
   document.getElementById('todayStr').textContent=fmtDate(t);
   document.getElementById('period').textContent=fmtDate(t).slice(0,4)+'年第'+getWeekNumber(t)+'周';
