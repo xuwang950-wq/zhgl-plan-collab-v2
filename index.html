@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>摩洛哥拉巴特高铁隧洞项目综合管理部｜工作计划与完成进度跟踪表</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;background:#eef3fa;color:#243b53;padding:16px;font-size:13px}
+  .page{max-width:1920px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(31,78,121,.13)}
+  .head{background:linear-gradient(135deg,#1f4e79,#2e75b6,#4a90d9);color:#fff;padding:20px 26px}
+  .head h1{font-size:20px;letter-spacing:1.5px}
+  .head h2{font-size:14px;font-weight:400;margin-top:6px;opacity:.94}
+  .head .meta{margin-top:10px;font-size:12px;opacity:.86;line-height:1.8}
+  .head .meta b{color:#ffe9a8}
+  .save-status{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:10px;font-size:11px;background:rgba(255,255,255,.16);color:#d6f5e3;transition:.3s}
+  .save-status.saving{background:rgba(255,200,80,.28);color:#ffe9a8}
+  .save-status.saved{background:rgba(120,230,160,.28);color:#d6f5e3}
+  .toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 20px;border-bottom:1px solid #e3ebf5;position:sticky;top:0;background:#fff;z-index:99}
+  .btn{border:1px solid #c9dcf0;background:#fff;color:#1f4e79;padding:8px 14px;border-radius:7px;cursor:pointer;font-size:12.5px;font-family:inherit;font-weight:600;transition:.18s;white-space:nowrap}
+  .btn:hover{background:#eaf3fd;border-color:#2e75b6}
+  .btn-primary{background:linear-gradient(135deg,#1f4e79,#2e75b6);color:#fff;border-color:#1f4e79}
+  .btn-primary:hover{background:linear-gradient(135deg,#173d5e,#2668a3);color:#fff}
+  .btn-warn{color:#9c0006;border-color:#f3c2c6}
+  .btn-warn:hover{background:#fdecee;border-color:#d9534f}
+  .btn-ok{color:#1e6e3a;border-color:#bfe2cb}
+  .btn-ok:hover{background:#e9f7ee;border-color:#1e8449}
+  .hint{margin-left:auto;font-size:11.5px;color:#8aa2b8}
+  .table-wrap{overflow:auto;max-height:72vh}
+  table{border-collapse:separate;border-spacing:0;table-layout:fixed}
+  .table-wrap thead{position:sticky;top:0;z-index:5}
+  thead th{background:#1f4e79;color:#fff;font-weight:600;font-size:11.5px;padding:8px 6px;text-align:center;line-height:1.35;border-right:1px solid #4a86c4;border-bottom:1px solid #4a86c4;position:sticky;z-index:3;white-space:normal;word-break:break-word}
+  tr.group-row th{top:0;background:#2e75b6;font-size:11px;height:28px;z-index:5;letter-spacing:.5px}
+  tr.header-row th{top:28px;height:42px;z-index:4}
+  tbody td{padding:4px 5px;border-right:1px solid #e3ebf5;border-bottom:1px solid #e3ebf5;font-size:11.5px;vertical-align:middle;line-height:1.5;word-break:break-word;background:#fff;transition:background .15s}
+  tbody tr:nth-child(even) td{background:#f7fbff}
+  tbody tr:hover td{background:#eaf4ff}
+  tbody tr.selected td{box-shadow:inset 0 0 0 2px #f0a500}
+  tbody tr.selected td:first-child{background:#f0a500!important;color:#fff;font-weight:700}
+  td.c-center{text-align:center}
+  td.c-left{text-align:left}
+  td.c-idx{text-align:center;font-weight:700;color:#5a7fa3;cursor:pointer;user-select:none;background:#f2f7fc!important;font-size:12px}
+  .st-done{background:#c6efce!important;color:#0b6623!important;font-weight:700}
+  .st-doing{background:#ddebf7!important;color:#1f4e79!important;font-weight:700}
+  .st-warn{background:#ffeb9c!important;color:#8a5b00!important;font-weight:700}
+  .st-delay{background:#ffc7ce!important;color:#9c0006!important;font-weight:700}
+  .st-idle{background:#f0f0f0!important;color:#808080!important}
+  .st-p0{background:#ffc7ce!important;color:#9c0006!important;font-weight:800}
+  .st-p1{background:#fce4d6!important;color:#c55a11!important;font-weight:700}
+  .st-p2{background:#ddebf7!important;color:#1f4e79!important;font-weight:700}
+  .st-p3{background:#f0f0f0!important;color:#595959!important}
+  .cell-input{width:100%;border:1px solid transparent;background:transparent;font:inherit;color:inherit;padding:5px 6px;cursor:pointer;font-size:11.5px;border-radius:4px;font-family:inherit;transition:.15s}
+  .cell-input:hover{background:rgba(46,117,182,.08);border-color:#c9dcf0}
+  .cell-input:focus{background:#fffdf0;outline:2px solid #2e75b6;outline-offset:-2px;border-color:transparent}
+  input.cell-text{cursor:text;padding:5px 6px;font-size:11px;text-align:center}
+  input.cell-text::placeholder{color:#b8c9db;font-size:10.5px}
+  input.cell-note{cursor:text;padding:5px 7px;font-size:11px;text-align:left}
+  input.cell-note::placeholder{color:#b8c9db;font-size:10.5px;font-style:italic}
+  select.cell-select{appearance:none;-webkit-appearance:none;-moz-appearance:none;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath fill='%235a7fa3' d='M0 0l4 5 4-5z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 6px center;padding-right:18px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;font-weight:600}
+  td.c-left select.cell-select{text-align:left}
+  td.c-center select.cell-select{text-align:center;text-align-last:center}
+  input.cell-date{padding:4px 5px;font-size:11px}
+  input.cell-date::-webkit-calendar-picker-indicator{cursor:pointer;opacity:.6}
+  .stats{padding:22px 24px 26px;border-top:3px solid #2e75b6;background:#fff}
+  .stats h3{font-size:14px;color:#1f4e79;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .stats h3::before{content:"";width:4px;height:16px;background:#2e75b6;border-radius:2px;display:inline-block}
+  .stats h3 .live{margin-left:auto;font-size:10.5px;font-weight:400;color:#1e8449;background:#e8f5ec;padding:2px 8px;border-radius:10px;display:inline-flex;align-items:center;gap:4px;opacity:0;transition:opacity .3s}
+  .stats h3 .live.show{opacity:1}
+  .stats h3 .live::before{content:"";width:6px;height:6px;background:#1e8449;border-radius:50%;animation:pulse 1s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+  .kpi-item{background:linear-gradient(135deg,#f4f9ff,#e8f2fd);border:1px solid #d6e7f8;border-radius:10px;padding:14px 16px;text-align:center;transition:transform .3s}
+  .kpi-item.flash{transform:scale(1.04);box-shadow:0 0 0 3px rgba(46,117,182,.25)}
+  .kpi-item .num{font-size:24px;font-weight:800;color:#1f4e79;line-height:1.2}
+  .kpi-item .lbl{font-size:11.5px;color:#6b8aa8;margin-top:5px}
+  .kpi-item.red .num{color:#c0392b}
+  .kpi-item.green .num{color:#1e8449}
+  .kpi-item.orange .num{color:#d68910}
+  .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px}
+  .stat-card{border:1px solid #e3ebf5;border-radius:10px;overflow:hidden;background:#fbfdff;transition:box-shadow .3s}
+  .stat-card.flash{box-shadow:0 0 0 3px rgba(46,117,182,.25)}
+  .stat-card h4{background:#eef5fd;color:#1f4e79;font-size:12.5px;padding:9px 14px;border-bottom:1px solid #e3ebf5;font-weight:700;display:flex;align-items:center;gap:6px}
+  .stat-card h4 .tag{font-size:10px;font-weight:400;color:#8aa2b8;margin-left:auto}
+  .stat-card table{width:100%;table-layout:auto;font-size:11.5px;border-collapse:collapse}
+  .stat-card th{background:#f6fafe;color:#4a6d8c;font-weight:600;padding:7px 10px;text-align:center;border-bottom:1px solid #e3ebf5;position:static;font-size:11px}
+  .stat-card td{padding:7px 10px;text-align:center;border-bottom:1px solid #eef3f9;color:#334e68;background:#fff;vertical-align:middle}
+  .stat-card tr:last-child td{border-bottom:none}
+  .stat-card td.task-list{text-align:left;font-size:10.5px;color:#5a7fa3;line-height:1.5;word-break:break-word}
+  .stat-card tr.top1 td{background:#fdf6e3}
+  .bar{height:7px;border-radius:4px;background:#e3ebf5;overflow:hidden;min-width:52px;display:inline-block;vertical-align:middle}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,#4a90d9,#1f4e79);border-radius:4px}
+  .rank{display:inline-block;width:18px;height:18px;line-height:18px;border-radius:50%;font-size:10px;font-weight:700;color:#fff;background:#8aa2b8;text-align:center}
+  .rank.r1{background:#d4a017}
+  .rank.r2{background:#9aa7b5}
+  .rank.r3{background:#c08457}
+  footer{padding:16px 24px 24px;font-size:11.5px;color:#8aa2b8;line-height:1.9;border-top:1px solid #eef3f9}
+  footer b{color:#4a6d8c}
+  @media print{body{background:#fff;padding:0}.toolbar{display:none}.table-wrap{max-height:none;overflow:visible}thead{position:static} thead th{position:static}.stats{page-break-before:always}.cell-input{border:none;background:transparent}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <h1>摩洛哥拉巴特高铁隧洞项目综合管理部</h1>
+    <h2>工作计划与完成进度跟踪表</h2>
+    <div class="meta">
+      统计周期：<b id="period"></b>　｜　当前日期：<b id="todayStr"></b>　｜　编制：综合管理部<br>
+      更新频次：<b>每周一</b>更新进度与状态，<b>每周天上午</b>补填未完成原因与补救措施　｜　状态可下拉选择，颜色自动跟随
+      <span class="save-status" id="saveStatus">云端同步已就绪</span>
+    </div>
+  </div>
+  <div class="toolbar">
+    <button class="btn btn-primary" id="btnExport">⬇ 导出 Excel</button>
+    <button class="btn" id="btnAdd">＋ 添加任务</button>
+    <button class="btn btn-warn" id="btnDel">－ 删除选中行</button>
+    <button class="btn" id="btnPrint">🖨 打印</button>
+    <button class="btn btn-ok" id="btnExportJson">📤 导出数据（备份/合并用）</button>
+    <button class="btn btn-ok" id="btnImportJson">📥 导入数据</button>
+    <button class="btn" id="btnReset">↺ 恢复示例</button>
+    <button class="btn btn-warn" id="btnClearLocal">🗑 清除本地保存</button>
+    <span class="hint">数据自动保存在本机浏览器，同时实时同步到云端；多人打开同一网址即可协同编辑</span>
+  </div>
+  <div class="table-wrap">
+    <table id="mainTable">
+      <colgroup id="colgroup"></colgroup>
+      <thead>
+        <tr id="groupRow" class="group-row"></tr>
+        <tr id="headerRow" class="header-row"></tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="stats">
+    <h3>汇总统计看板<span class="live" id="liveTag">已同步</span></h3>
+    <div class="kpi" id="kpiBox"></div>
+    <div class="stat-grid" id="statGrid"></div>
+  </div>
+  <footer>
+    <b>填写规范：</b>未完成原因必须写清「具体事件 + 发生时间 + 造成影响 + 已采取措施」。<br>
+    <b>状态说明：</b>状态可下拉选择；修改「当前进度」「计划完成」「实际完成」后，状态会自动同步为推荐值，也可手动覆盖。<br>
+    <b>数据保存：</b>所有修改实时同步到云端（Firebase Realtime Database），多人打开同一网址即可协同编辑；同时自动缓存在本机浏览器（localStorage），离线或断网时刷新不丢失。<br>
+    <b>岗位设置：</b>部门负责人、高级主管、副科队长、行政专员。<br>
+    <b>协同原则：</b>大型公务接待全员参与统一调度；涉及SGTM、业主及相关方、当地人员的事务性翻译协助，全员配合支持。
+  </footer>
+</div>
+<input type="file" id="fileImport" accept=".json" style="display:none">
+<script>
+/* =========================================================
+   Firebase 初始化（多人协同）
+   ========================================================= */
+const firebaseConfig = {
+  apiKey: "AIzaSyAG7buWmdfpHpWvigI2hXfrwFXCU05uAVs",
+  authDomain: "zhgl-plan-collab.firebaseapp.com",
+  databaseURL: "https://zhgl-plan-collab-default-rtdb.firebaseio.com",
+  projectId: "zhgl-plan-collab",
+  storageBucket: "zhgl-plan-collab.firebasestorage.app",
+  messagingSenderId: "107833464562",
+  appId: "1:107833464562:web:54297ce391540201b5a26b"
+};
+firebase.initializeApp(firebaseConfig);
+const DB_REF = firebase.database().ref('plan_data');
+
+/* =========================================================
+   本地保存（localStorage）
+   ========================================================= */
+const LS_KEY='zhgl_plan_data_v1';
+let saveTimer=null;
+const saveStatusEl=document.getElementById('saveStatus');
+
+function setSaveStatus(text,state){
+  if(!saveStatusEl)return;
+  saveStatusEl.textContent=text;
+  saveStatusEl.classList.remove('saving','saved');
+  if(state)saveStatusEl.classList.add(state);
+}
+
+function saveLocal(immediate){
+  const doSave=()=>{
+    try{
+      localStorage.setItem(LS_KEY,JSON.stringify(DATA));
+      const d=new Date();
+      const hh=String(d.getHours()).padStart(2,'0');
+      const mm=String(d.getMinutes()).padStart(2,'0');
+      const ss=String(d.getSeconds()).padStart(2,'0');
+      setSaveStatus('已保存 '+hh+':'+mm+':'+ss,'saved');
+    }catch(e){
+      console.warn('本地保存失败：',e);
+      setSaveStatus('保存失败：浏览器可能禁用了本地存储','saving');
+    }
+    pushRemote(!!immediate);
+  };
+  if(immediate){clearTimeout(saveTimer);doSave();return;}
+  setSaveStatus('正在保存…','saving');
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(doSave,400);
+}
+
+function loadLocal(){
+  try{
+    const s=localStorage.getItem(LS_KEY);
+    if(!s)return null;
+    const arr=JSON.parse(s);
+    if(Array.isArray(arr)&&arr.length)return arr;
+  }catch(e){console.warn('本地数据读取失败：',e);}
+  return null;
+}
+
+function clearLocal(){
+  try{localStorage.removeItem(LS_KEY);}catch(e){}
+}
+
+/* =========================================================
+   多人协同同步（Firebase Realtime Database）
+   ========================================================= */
+const DELETED_KEY='zhgl_plan_deleted_v1';
+let pushTimer=null;
+let lastPushAt=0;
+let pendingRemoteData=null;
+
+function loadDeletedIds(){
+  try{
+    const s=localStorage.getItem(DELETED_KEY);
+    if(!s)return [];
+    const arr=JSON.parse(s);
+    return Array.isArray(arr)?arr:[];
+  }catch(e){return []}
+}
+function saveDeletedIds(ids){
+  try{localStorage.setItem(DELETED_KEY,JSON.stringify(ids));}catch(e){}
+}
+
+function ensureRowMeta(row){
+  if(!row||typeof row!=='object')return row;
+  if(!row._id){
+    const base=(row.code&&String(row.code).trim())||'';
+    row._id=base||((typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():('id_'+Date.now()+'_'+Math.floor(Math.random()*1e6)));
+  }
+  if(typeof row.updatedAt!=='number')row.updatedAt=0;
+  return row;
+}
+function ensureDataMeta(arr){
+  if(!Array.isArray(arr))return [];
+  const used=new Set();
+  arr.forEach(row=>{
+    if(!row||typeof row!=='object')return;
+    ensureRowMeta(row);
+    if(used.has(row._id)){
+      row._id=(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():('id_'+Date.now()+'_'+Math.floor(Math.random()*1e6));
+    }
+    used.add(row._id);
+    if(typeof row.updatedAt!=='number')row.updatedAt=0;
+  });
+  return arr;
+}
+
+function mergeRows(remoteRows,localRows,deletedIds){
+  const deleted=new Set(Array.isArray(deletedIds)?deletedIds:[]);
+  const map=new Map();
+  (Array.isArray(remoteRows)?remoteRows:[]).forEach(r=>{
+    if(r&&r._id)map.set(r._id,Object.assign({},r));
+  });
+  (Array.isArray(localRows)?localRows:[]).forEach(r=>{
+    if(!r||!r._id)return;
+    const rem=map.get(r._id);
+    if(!rem||(Number(r.updatedAt)||0)>(Number(rem.updatedAt)||0)){
+      map.set(r._id,Object.assign({},r));
+    }
+  });
+  deleted.forEach(id=>map.delete(id));
+  return dedupByCode(Array.from(map.values()));
+}
+
+function dedupByCode(rows){
+  const byCode=new Map();
+  const out=[];
+  (Array.isArray(rows)?rows:[]).forEach(r=>{
+    if(!r){return;}
+    const c=(r.code&&String(r.code).trim())||'';
+    if(!c){out.push(r);return;}
+    const ex=byCode.get(c);
+    if(!ex){byCode.set(c,r);out.push(r);return;}
+    if((Number(r.updatedAt)||0)>(Number(ex.updatedAt)||0)){
+      const idx=out.indexOf(ex);
+      if(idx>=0)out[idx]=r;
+      byCode.set(c,r);
+    }
+  });
+  return out;
+}
+
+function normalizeRemote(val){
+  if(Array.isArray(val))return val;
+  if(val&&Array.isArray(val.data))return val.data;
+  return [];
+}
+
+function cleanForPush(rows){
+  return (Array.isArray(rows)?rows:[]).filter(r=>r&&((r.code&&String(r.code).trim())||(r.name&&String(r.name).trim())));
+}
+
+function pushRemote(immediate){
+  const doPush=()=>{
+    try{
+      DB_REF.once('value').then(snap=>{
+        const remoteRows=normalizeRemote(snap.val());
+        const merged=mergeRows(remoteRows,DATA,loadDeletedIds());
+        DATA=ensureDataMeta(merged);
+        lastPushAt=Date.now();
+        return DB_REF.set(DATA);
+      }).then(()=>{
+        const d=new Date();
+        const hh=String(d.getHours()).padStart(2,'0');
+        const mm=String(d.getMinutes()).padStart(2,'0');
+        const ss=String(d.getSeconds()).padStart(2,'0');
+        setSaveStatus('云端已同步 '+hh+':'+mm+':'+ss,'saved');
+        try{localStorage.setItem(LS_KEY,JSON.stringify(DATA));}catch(e){}
+        const activeCell=document.activeElement&&document.activeElement.closest?document.activeElement.closest('#tbody .cell-input'):null;
+        if(!activeCell){renderAll();}
+      }).catch(err=>{
+        console.warn('云端同步失败：',err);
+        setSaveStatus('云端同步失败，请检查网络','saving');
+      });
+    }catch(err){
+      console.warn('云端同步失败：',err);
+      setSaveStatus('云端同步失败，请检查网络','saving');
+    }
+  };
+  if(immediate){clearTimeout(pushTimer);doPush();return;}
+  setSaveStatus('同步中…','saving');
+  clearTimeout(pushTimer);
+  pushTimer=setTimeout(doPush,1200);
+}
+
+function applyRemoteData(remoteRows){
+  const remoteMap=new Map();
+  remoteRows.forEach(r=>{if(r&&r._id)remoteMap.set(r._id,r)});
+  const deleted=loadDeletedIds();
+  const localHasNewer=DATA.some(r=>{
+    if(!r||!r._id)return true;
+    const rem=remoteMap.get(r._id);
+    return !rem||(Number(r.updatedAt)||0)>(Number(rem.updatedAt)||0);
+  });
+  const needPush=localHasNewer||deleted.some(id=>remoteMap.has(id));
+  const merged=mergeRows(remoteRows,DATA,deleted);
+  const dataChanged=JSON.stringify(merged)!==JSON.stringify(remoteRows);
+  const shouldPush=needPush||dataChanged;
+  DATA=ensureDataMeta(merged);
+  renderAll(true);
+  try{localStorage.setItem(LS_KEY,JSON.stringify(DATA));}catch(e){}
+  const d=new Date();
+  const hh=String(d.getHours()).padStart(2,'0');
+  const mm=String(d.getMinutes()).padStart(2,'0');
+  const ss=String(d.getSeconds()).padStart(2,'0');
+  if(shouldPush){
+    lastPushAt=Date.now();
+    DB_REF.set(cleanForPush(DATA)).then(()=>{
+      setSaveStatus('云端已同步 '+hh+':'+mm+':'+ss,'saved');
+    }).catch(err=>{
+      console.warn('云端同步失败：',err);
+      setSaveStatus('云端同步失败，请检查网络','saving');
+    });
+  }else{
+    setSaveStatus('云端已同步 '+hh+':'+mm+':'+ss,'saved');
+  }
+}
+
+function initRemoteSync(){
+  DB_REF.once('value').then(snap=>{
+    const remoteRows=normalizeRemote(snap.val());
+    if(remoteRows.length){
+      applyRemoteData(remoteRows);
+    }else{
+      DATA=ensureDataMeta(DATA);
+      DB_REF.set(DATA).then(()=>{
+        lastPushAt=Date.now();
+        const d=new Date();
+        const hh=String(d.getHours()).padStart(2,'0');
+        const mm=String(d.getMinutes()).padStart(2,'0');
+        const ss=String(d.getSeconds()).padStart(2,'0');
+        setSaveStatus('云端已同步 '+hh+':'+mm+':'+ss,'saved');
+        try{localStorage.setItem(LS_KEY,JSON.stringify(DATA));}catch(e){}
+      }).catch(err=>{
+        console.warn('初始同步失败：',err);
+        setSaveStatus('云端同步失败，请检查网络','saving');
+      });
+    }
+  }).catch(err=>{
+    console.warn('初始同步失败：',err);
+    setSaveStatus('云端同步失败，请检查网络','saving');
+  });
+}
+
+function handleRemoteRows(remoteRows){
+  if(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('#tbody .cell-input')){
+    pendingRemoteData=remoteRows;
+    return;
+  }
+  applyRemoteData(remoteRows);
+}
+
+function bindRemoteListener(){
+  DB_REF.on('value',snap=>{
+    const val=snap.val();
+    if(val===null||val===undefined)return;
+    handleRemoteRows(normalizeRemote(val));
+  });
+  setInterval(()=>{
+    try{
+      DB_REF.once('value').then(snap=>{
+        const val=snap.val();
+        if(val===null||val===undefined)return;
+        handleRemoteRows(normalizeRemote(val));
+      }).catch(()=>{});
+    }catch(e){}
+  },20000);
+}
+
+/* =========================================================
+   下拉选项与示例数据
+   ========================================================= */
+const COLS=[
+ {key:'idx',label:'序号',w:48,cls:'c-center'},
+ {key:'code',label:'任务编号',w:118,cls:'c-center'},
+ {key:'module',label:'工作模块',w:100,cls:'c-center'},
+ {key:'type',label:'任务类型',w:86,cls:'c-center'},
+ {key:'name',label:'任务名称',w:190,cls:'c-left'},
+ {key:'detailName',label:'具体名称',w:240,cls:'c-left'},
+ {key:'source',label:'任务来源',w:100,cls:'c-center'},
+ {key:'deliverable',label:'交付物/完成标准',w:190,cls:'c-left'},
+ {key:'owner',label:'责任人',w:86,cls:'c-center'},
+ {key:'position',label:'岗位',w:130,cls:'c-center'},
+ {key:'support',label:'协办人/部门',w:110,cls:'c-center'},
+ {key:'priority',label:'优先级',w:66,cls:'c-center'},
+ {key:'start',label:'计划开始',w:118,cls:'c-center'},
+ {key:'end',label:'计划完成',w:118,cls:'c-center'},
+ {key:'milestone',label:'关键节点',w:140,cls:'c-left'},
+ {key:'progress',label:'当前进度',w:80,cls:'c-center'},
+ {key:'status',label:'状态',w:82,cls:'c-center'},
+ {key:'actual',label:'实际完成',w:118,cls:'c-center'},
+ {key:'ontime',label:'是否按期',w:82,cls:'c-center'},
+ {key:'overdue',label:'逾期天数',w:68,cls:'c-center'},
+ {key:'reason',label:'未完成原因',w:280,cls:'c-left'},
+ {key:'reasonType',label:'原因分类',w:170,cls:'c-center'},
+ {key:'impact',label:'影响评估',w:220,cls:'c-left'},
+ {key:'action',label:'补救措施',w:260,cls:'c-left'},
+ {key:'newDate',label:'纠偏后完成时间',w:126,cls:'c-center'},
+ {key:'need',label:'需协调支持',w:180,cls:'c-left'},
+ {key:'remark',label:'备注（手填）',w:180,cls:'c-left'},
+ {key:'risk',label:'风险等级',w:76,cls:'c-center'},
+ {key:'updateDate',label:'更新日期',w:118,cls:'c-center'},
+ {key:'leader',label:'负责人意见',w:170,cls:'c-left'}
+];
+const GROUPS=[
+ {name:'一、任务基本信息',span:8},
+ {name:'二、责任人信息',span:4},
+ {name:'三、时间计划',span:3},
+ {name:'四、执行进度',span:5},
+ {name:'五、未完成原因与补救',span:7},
+ {name:'六、风险与确认',span:3}
+];
+const LEFT_KEYS=new Set(['name','detailName','deliverable','milestone','reason','impact','action','need','leader','remark']);
+
+const DROPDOWNS = {
+  module: ['综合行政','人力资源','文宣党务','印章管理','会议统筹','固定资产','公务接待','部门统筹','文函流转','差旅保障','通讯管理','信息维护','食堂运营','后勤综合','车辆管理','采购支持','营地管理','签证事务','合同管理','翻译支持','属地薪资','外联协调','市场开发','餐饮保障','其他','安全管理'],
+  type: ['统筹管理','日常例行','月度例行','周例行','专项任务','临时任务','接待保障','对外协调','合规管理','档案归档','翻译任务','其他'],
+  source: ['年度目标','月度计划','周计划','上级交办','部门重点','例行工作','合规要求','部门自定','业主/相关方要求','其他'],
+  owner: ['王旭','郭拥军','刘婧','梁小刚'],
+  position: ['部门负责人','高级主管','副科队长','行政专员'],
+  support: ['无','综合管理部','财务部','法务部','设备物资部','市场部','业主/相关方','联营体','当地机构','其他'],
+  priority: ['P0','P1','P2','P3'],
+  progress: ['0%','10%','20%','30%','40%','50%','60%','70%','80%','90%','100%'],
+  status: ['未开始','进行中','预警','延期','暂停','取消','已完成'],
+  risk: ['高','中','低'],
+  reasonType: ['无','R01 业主/相关方回复延迟','R02 当地政府部门办理周期长','R03 跨部门材料/数据未按时提供','R04 领导临时交办紧急事项','R05 大型接待/会议临时增加','R06 翻译任务临时插入','R07 车辆调度冲突或故障','R08 食堂物资/供应商供货延迟','R09 水电燃气突发故障','R10 责任人请假/出差/借调','R11 审批流程/签字未完成','R12 预算/费用未批复','R13 材料不齐需补充','R14 系统/网络/通讯故障','R15 签证/劳工/税务政策变化','R16 不可抗力（天气/交通/突发）','R17 其他'],
+  reason: ['无','业主/相关方函件或回复超期，导致后续流程无法启动','当地政府部门（签证/居留/劳工）办理周期超出预期','跨部门考勤、绩效、费用等材料未按时提交','领导临时交办紧急事项，原计划任务被占用','大型公务接待或公司级会议临时增加，人手被抽调','SGTM/业主/当地人员翻译任务临时插入，翻译资源被占用','车辆调度冲突或车辆故障，接送机/接待用车无法保障','食堂食材或生活物资供应商供货延迟，影响正常保障','水电燃气突发故障，维修配件或人员未及时到位','责任人请假/出差/被借调，工作无法按期推进','用印、合同、报销等审批流程未走完，等待领导签字','相关费用预算未批复，采购或活动无法启动','材料不齐或信息有误，需退回补充后重新提交','OA、考勤机、通讯网络、社保系统等故障，无法线上办理','签证、劳工、税务等政策调整，需重新准备材料','天气、交通、突发公共事件等不可抗力影响','其他（需在备注中具体说明）'],
+  impact: ['无','影响公司级会议/汇报材料按时提交','影响公务接待执行与项目对外形象','影响中方人员薪资按时发放','影响摩方雇员薪资按时发放','影响员工签证/居留合规，存在出入境风险','影响劳动合同合规，存在用工法律风险','影响营地正常运转与员工生活保障','影响食堂正常供餐与员工满意度','影响车辆正常调度与接待用车保障','影响函件流转时效与归档完整性','影响重要会议/现场翻译支持','影响公文流转与档案归档完整性','影响与业主/相关方的关系维护','影响部门内部协作效率与任务衔接','影响固定资产账实一致与审计合规','影响办公用品/应急物资供应保障','存在审计、合规或纪检监察风险','影响员工满意度与团队稳定性','其他'],
+  action: ['无','已电话/邮件/函件催办，并明确回复时限','已协调当地机构加快办理，安排专人跟进','已向领导汇报并请示协调相关部门','已启动备用供应商/备用渠道同步推进','全员协同支援，临时调整分工保障重点任务','先完成可推进部分，剩余待条件具备后补办','已调整计划顺延处理，并同步更新节点','已准备两套方案备选，视条件选择执行','安排专人每日跟进，进度实时反馈','利用业余时间加班推进，压缩办理周期','调整任务优先级，先处理紧急事项','已联系设备物资部协同处理','已联系财务部加快审批/付款','已联系法务部确认合规口径','已准备补办材料，条件满足即报','已启动应急保障方案（车辆/食堂/住宿等）','已开展内部培训或流程优化，避免再次发生','其他'],
+  name: [
+    '安全检查','安全文件宣传','安全资料提交',
+    'PRP报表报送','月度报表报送','月度汇报','季度资料报送','季度汇报','月度资料报送',
+    '中方人员薪酬核算','中方人员社保缴纳','摩方员工薪酬福利核算','摩方员工社保事务',
+    '劳动合同签订','劳动合同续签','护照统筹管理','签证办理及合规审查',
+    '员工进退场函件办理','出入境合规管理','人员信息表更新','考勤记录统计','项目出勤时间统计',
+    '重要讲话稿起草','新闻宣传稿撰写','公文起草与流转','收发文处理',
+    '业主/集团函件收发归档','制度建设','企业文化宣传','党建工作','工会事务','纪检监察工作',
+    '印章使用管理','公司级会议统筹','业主高层对接会议','会议物资准备','会议室安排','翻译协调',
+    '固定资产盘点','固定资产登记与监管','公务接待策划与执行','接送机保障','部门内部工作统筹',
+    '食堂运营管理','食材采购款管理','伙食费计提与报销','食堂报销单据整理',
+    '生活物资保障','生活用品采购','水电燃气维修协调',
+    '车辆调度管理','车辆维护保养','车辆保险办理',
+    '办公用品采购','应急药品采购','会议用品采购','营地日常管理','营地维护',
+    '房屋租赁单据审核','无票费用核销',
+    '对外联络协调','相关方关系维护','市场调研','业务拓展','市场开发配合',
+    '重要文件翻译','会议翻译','现场翻译','商务外联翻译','联营体付款资料翻译','医疗事务翻译','专项翻译任务',
+    '机票预订','出境证明办理','电话卡管理','网络通讯事务',
+    '领导交办其他工作'
+  ],
+  deliverable: ['报表+回执+归档','工资表+工资条全部发放','社保办结回执+缴费凭证','合同签署完成并归档','签证办结+出入境合规','函件收发登记+归档','讲话稿/宣传稿定稿','公文流转完成+归档','会议材料+纪要+跟踪表','印章使用登记完成','资产盘点表+差异说明','接待方案+执行记录','物资到货验收+入库登记','车辆调度记录+维保台账','翻译件交付+归档','考勤/人员信息表更新完成','营地检查记录+整改闭环','食堂台账+报销单据完整','调研报告/市场信息汇总','安全检查记录+整改闭环','安全资料归档','报表报送+回执','汇报材料+纪要','发票回执','其他'],
+  milestone: ['数据收集完成','材料提交完成','方案定稿','合同条款确认','函件发出/签收','会议召开完成','现场初查完成','物资到货验收','翻译件交付','台账登记完成','检查完成','报表报送完成','汇报完成','其他'],
+  need: ['无','需各部门按时提交材料','需财务部及时批复','需法务部确认','需设备物资部配合','需市场部协同','需业主/相关方回复','需上级领导协调','需当地机构配合','需综合管理部内部协同','其他'],
+  leader: ['同意','同意，按计划执行','同意，抓紧催收','同意延后，但不得跨月','务必按期完成','按计划推进，及时预警','继续跟进，每日反馈','全员协同保障','其他']
+};
+
+const SAMPLE=[
+{code:'ZH-2026-10-001',module:'人力资源',type:'月度例行',name:'中方人员薪酬核算',detailName:'10月薪酬核算（中方）',source:'月度例行',deliverable:'工资表+工资条全部发放',owner:'王旭',position:'部门负责人',support:'财务部',priority:'P0',start:'2026-10-01',end:'2026-10-10',milestone:'数据收集完成',progress:'100%',status:'已完成',actual:'2026-10-12',reason:'跨部门考勤、绩效、费用等材料未按时提交',reasonType:'R03 跨部门材料/数据未按时提供',impact:'影响中方人员薪资按时发放',action:'已电话/邮件/函件催办，并明确回复时限',newDate:'2026-10-12',need:'需各部门按时提交材料',remark:'已要求各部门每月5日前提交数据',risk:'中',updateDate:'2026-10-11',leader:'同意，按计划执行'},
+{code:'ZH-2026-10-002',module:'文宣党务',type:'专项任务',name:'党建工作',detailName:'党建季度材料',source:'上级交办',deliverable:'党建材料+活动记录',owner:'王旭',position:'部门负责人',support:'各部门',priority:'P1',start:'2026-10-08',end:'2026-10-25',milestone:'材料提交完成',progress:'40%',status:'进行中',actual:'',reason:'材料不齐或信息有误，需退回补充后重新提交',reasonType:'R13 材料不齐需补充',impact:'存在审计、合规或纪检监察风险',action:'已准备补办材料，条件满足即报',newDate:'2026-10-28',need:'需各部门按时提交材料',remark:'已列清单反馈各部门，10-18前补齐',risk:'中',updateDate:'2026-10-11',leader:'按计划推进，及时预警'},
+{code:'ZH-2026-10-003',module:'会议统筹',type:'接待保障',name:'公司级会议统筹',detailName:'',source:'上级交办',deliverable:'会议材料+纪要+跟踪表',owner:'王旭',position:'部门负责人',support:'各部门',priority:'P0',start:'2026-10-09',end:'2026-10-14',milestone:'会议召开完成',progress:'60%',status:'预警',actual:'',reason:'领导临时交办紧急事项，原计划任务被占用',reasonType:'R04 领导临时交办紧急事项',impact:'影响公司级会议/汇报材料按时提交',action:'全员协同支援，临时调整分工保障重点任务',newDate:'2026-10-15',need:'需各部门按时提交材料',remark:'会议室已预订，翻译已协调',risk:'中',updateDate:'2026-10-11',leader:'同意，抓紧催收'},
+{code:'ZH-2026-10-004',module:'印章管理',type:'日常例行',name:'印章使用管理',detailName:'',source:'例行工作',deliverable:'印章使用登记完成',owner:'王旭',position:'部门负责人',support:'无',priority:'P1',start:'2026-10-01',end:'2026-10-31',milestone:'台账登记完成',progress:'100%',status:'已完成',actual:'2026-10-11',reason:'无',reasonType:'无',impact:'无',action:'无',newDate:'',need:'无',remark:'台账已更新，无异常',risk:'低',updateDate:'2026-10-11',leader:'同意，按计划执行'},
+{code:'ZH-2026-10-005',module:'文函流转',type:'日常例行',name:'收发文处理',detailName:'',source:'例行工作',deliverable:'函件收发登记+归档',owner:'刘婧',position:'行政专员',support:'各部门',priority:'P0',start:'2026-10-01',end:'2026-10-31',milestone:'函件发出/签收',progress:'100%',status:'已完成',actual:'2026-10-11',reason:'无',reasonType:'无',impact:'无',action:'无',newDate:'',need:'无',remark:'本月已收发文共18份，均已归档',risk:'低',updateDate:'2026-10-11',leader:'同意，按计划执行'},
+{code:'ZH-2026-10-006',module:'差旅保障',type:'日常例行',name:'机票预订',detailName:'',source:'例行工作',deliverable:'行程确认+票务归档',owner:'刘婧',position:'行政专员',support:'财务部',priority:'P1',start:'2026-10-08',end:'2026-10-15',milestone:'函件发出/签收',progress:'70%',status:'预警',actual:'',reason:'业主/相关方函件或回复超期，导致后续流程无法启动',reasonType:'R01 业主/相关方回复延迟',impact:'影响员工签证/居留合规，存在出入境风险',action:'已电话/邮件/函件催办，并明确回复时限',newDate:'2026-10-18',need:'需业主/相关方回复',remark:'已两次电话催办，等待业主书面确认',risk:'中',updateDate:'2026-10-11',leader:'继续跟进，每日反馈'},
+{code:'ZH-2026-10-007',module:'信息维护',type:'月度例行',name:'考勤记录统计',detailName:'',source:'月度例行',deliverable:'考勤/人员信息表更新完成',owner:'刘婧',position:'行政专员',support:'各部门',priority:'P1',start:'2026-10-01',end:'2026-10-10',milestone:'数据收集完成',progress:'80%',status:'延期',actual:'',reason:'跨部门考勤、绩效、费用等材料未按时提交',reasonType:'R03 跨部门材料/数据未按时提供',impact:'影响部门内部协作效率与任务衔接',action:'已电话/邮件/函件催办，并明确回复时限',newDate:'2026-10-13',need:'需各部门按时提交材料',remark:'尚有2个部门未交，已电话催办',risk:'中',updateDate:'2026-10-11',leader:'同意，抓紧催收'},
+{code:'ZH-2026-10-008',module:'食堂运营',type:'日常例行',name:'食堂运营管理',detailName:'',source:'例行工作',deliverable:'食堂台账+报销单据完整',owner:'郭拥军',position:'高级主管',support:'财务部',priority:'P1',start:'2026-10-01',end:'2026-10-31',milestone:'台账登记完成',progress:'50%',status:'进行中',actual:'',reason:'食堂食材或生活物资供应商供货延迟，影响正常保障',reasonType:'R08 食堂物资/供应商供货延迟',impact:'影响食堂正常供餐与员工满意度',action:'已启动备用供应商/备用渠道同步推进',newDate:'2026-10-31',need:'需财务部及时批复',remark:'已联系2家备用供应商，价格正在比选',risk:'中',updateDate:'2026-10-11',leader:'按计划推进，及时预警'},
+{code:'ZH-2026-10-009',module:'车辆管理',type:'日常例行',name:'车辆调度管理',detailName:'',source:'例行工作',deliverable:'车辆调度记录+维保台账',owner:'郭拥军',position:'高级主管',support:'设备物资部',priority:'P1',start:'2026-10-01',end:'2026-10-31',milestone:'台账登记完成',progress:'60%',status:'进行中',actual:'',reason:'车辆调度冲突或车辆故障，接送机/接待用车无法保障',reasonType:'R07 车辆调度冲突或故障',impact:'影响车辆正常调度与接待用车保障',action:'已联系设备物资部协同处理',newDate:'2026-10-31',need:'需设备物资部配合',remark:'1辆车送修，预计10-14恢复',risk:'中',updateDate:'2026-10-11',leader:'继续跟进，每日反馈'},
+{code:'ZH-2026-10-010',module:'后勤综合',type:'临时任务',name:'水电燃气维修协调',detailName:'',source:'临时任务',deliverable:'维修完成+验收记录',owner:'郭拥军',position:'高级主管',support:'设备物资部',priority:'P2',start:'2026-10-10',end:'2026-10-20',milestone:'现场初查完成',progress:'30%',status:'进行中',actual:'',reason:'水电燃气突发故障，维修配件或人员未及时到位',reasonType:'R09 水电燃气突发故障',impact:'影响营地正常运转与员工生活保障',action:'已启动应急保障方案（车辆/食堂/住宿等）',newDate:'2026-10-25',need:'需设备物资部配合',remark:'配件已下单，预计10-16到货',risk:'中',updateDate:'2026-10-11',leader:'同意延后，但不得跨月'},
+{code:'ZH-2026-10-011',module:'签证事务',type:'合规管理',name:'签证办理及合规审查',detailName:'',source:'合规要求',deliverable:'签证办结+出入境合规',owner:'梁小刚',position:'副科队长',support:'当地机构',priority:'P0',start:'2026-10-01',end:'2026-10-18',milestone:'材料提交完成',progress:'80%',status:'进行中',actual:'',reason:'当地政府部门（签证/居留/劳工）办理周期超出预期',reasonType:'R02 当地政府部门办理周期长',impact:'影响员工签证/居留合规，存在出入境风险',action:'已协调当地机构加快办理，安排专人跟进',newDate:'2026-10-20',need:'需当地机构配合',remark:'已安排专人驻场跟进，每日反馈',risk:'高',updateDate:'2026-10-11',leader:'务必按期完成'},
+{code:'ZH-2026-10-012',module:'属地薪资',type:'月度例行',name:'摩方员工薪酬福利核算',detailName:'',source:'月度例行',deliverable:'工资表+工资条全部发放',owner:'梁小刚',position:'副科队长',support:'财务部',priority:'P0',start:'2026-10-01',end:'2026-10-12',milestone:'数据收集完成',progress:'90%',status:'进行中',actual:'',reason:'无',reasonType:'无',impact:'无',action:'无',newDate:'',need:'无',remark:'已完成初审，待财务复核',risk:'低',updateDate:'2026-10-11',leader:'按计划推进，及时预警'},
+{code:'ZH-2026-10-013',module:'合同管理',type:'合规管理',name:'劳动合同续签',detailName:'',source:'合规要求',deliverable:'合同签署完成并归档',owner:'梁小刚',position:'副科队长',support:'法务部',priority:'P0',start:'2026-10-08',end:'2026-10-22',milestone:'合同条款确认',progress:'70%',status:'进行中',actual:'',reason:'用印、合同、报销等审批流程未走完，等待领导签字',reasonType:'R11 审批流程/签字未完成',impact:'影响劳动合同合规，存在用工法律风险',action:'已联系法务部确认合规口径',newDate:'2026-10-24',need:'需法务部确认',remark:'法务已口头确认，待书面回函',risk:'高',updateDate:'2026-10-11',leader:'务必按期完成'},
+{code:'ZH-2026-10-014',module:'翻译支持',type:'翻译任务',name:'重要文件翻译',detailName:'',source:'临时任务',deliverable:'翻译件交付+归档',owner:'梁小刚',position:'副科队长',support:'各部门',priority:'P2',start:'2026-10-10',end:'2026-10-18',milestone:'翻译件交付',progress:'50%',status:'进行中',actual:'',reason:'SGTM/业主/当地人员翻译任务临时插入，翻译资源被占用',reasonType:'R06 翻译任务临时插入',impact:'影响重要会议/现场翻译支持',action:'全员协同支援，临时调整分工保障重点任务',newDate:'2026-10-20',need:'需综合管理部内部协同',remark:'已与于广全、装宇申协同分担',risk:'中',updateDate:'2026-10-11',leader:'全员协同保障'},
+{code:'ZH-2026-10-015',module:'安全管理',type:'月度例行',name:'安全检查',detailName:'',source:'合规要求',deliverable:'安全检查记录+整改闭环',owner:'郭拥军',position:'高级主管',support:'各部门',priority:'P0',start:'2026-10-10',end:'2026-10-25',milestone:'检查完成',progress:'60%',status:'进行中',actual:'',reason:'部分区域现场条件不具备，检查暂缓',reasonType:'R04 领导临时交办紧急事项',impact:'存在审计、合规或纪检监察风险',action:'已调整计划顺延处理，并同步更新节点',newDate:'2026-10-28',need:'需各部门配合',remark:'已完成A区检查，B区10-20前完成',risk:'中',updateDate:'2026-10-11',leader:'务必按期完成'},
+{code:'ZH-2026-10-016',module:'安全管理',type:'月度例行',name:'月度资料报送',detailName:'',source:'上级交办',deliverable:'报表报送+回执',owner:'刘婧',position:'行政专员',support:'各部门',priority:'P1',start:'2026-10-01',end:'2026-10-10',milestone:'报表报送完成',progress:'100%',status:'已完成',actual:'2026-10-09',reason:'无',reasonType:'无',impact:'无',action:'无',newDate:'',need:'无',remark:'已按时报送集团',risk:'低',updateDate:'2026-10-11',leader:'同意，按计划执行'},
+{code:'ZH-2026-10-017',module:'安全管理',type:'月度例行',name:'PRP报表报送',detailName:'',source:'上级交办',deliverable:'报表报送+回执',owner:'梁小刚',position:'副科队长',support:'各部门',priority:'P0',start:'2026-10-05',end:'2026-10-15',milestone:'报表报送完成',progress:'50%',status:'进行中',actual:'',reason:'跨部门数据未按时提供',reasonType:'R03 跨部门材料/数据未按时提供',impact:'影响报表按时报送',action:'已电话催办并明确回复时限',newDate:'2026-10-18',need:'需各部门按时提交材料',remark:'尚有2个部门未报',risk:'中',updateDate:'2026-10-11',leader:'抓紧催收'}
+];
+
+/* =========================================================
+   初始化：优先使用本地保存的数据
+   ========================================================= */
+const saved=loadLocal();
+let DATA = ensureDataMeta(saved ? saved : JSON.parse(JSON.stringify(SAMPLE)));
+if(saved){setSaveStatus('已从本地恢复 '+saved.length+' 条数据','saved');}
+let selectedRow=-1;
+
+function today(){const d=new Date();d.setHours(0,0,0,0);return d}
+function fmtDate(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function parseDate(s){if(!s)return null;const m=String(s).match(/(\d{4})\s*[-/.]\s*(\d{1,2})\s*[-/.]\s*(\d{1,2})/);if(!m)return null;const d=new Date(+m[1],+m[2]-1,+m[3]);d.setHours(0,0,0,0);return isNaN(d.getTime())?null:d}
+function dayDiff(a,b){return Math.round((a-b)/86400000)}
+function pct(v){const n=parseInt(String(v||'').replace(/[^\d]/g,''),10);return isNaN(n)?0:n}
+function getWeekNumber(d){d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));const dayNum=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-dayNum);const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1));return Math.ceil((((d-yearStart)/86400000)+1)/7)}
+function calcStatus(row){
+  const t=today();
+  if(row.actual&&String(row.actual).trim())return'已完成';
+  const prog=pct(row.progress);
+  if(prog===100)return'已完成';
+  const end=parseDate(row.end);
+  if(!end)return'进行中';
+  if(t>end)return'延期';
+  const diff=dayDiff(end,t);
+  if(prog===0&&diff>5)return'未开始';
+  if(diff<=3&&prog<80)return'预警';
+  return'进行中';
+}
+function calcOntime(row){if(!(row.actual&&String(row.actual).trim()))return'未完成';const end=parseDate(row.end),act=parseDate(row.actual);if(!end||!act)return'按期';return act<=end?'按期':'延期完成'}
+function calcOverdue(row){const end=parseDate(row.end),t=today();if(!end)return 0;if(row.actual&&String(row.actual).trim()){const act=parseDate(row.actual);return(act&&act>end)?dayDiff(act,end):0}return t>end?dayDiff(t,end):0}
+function cellColorClass(key,val){const v=String(val==null?'':val).trim();if(key==='status')return{'已完成':'st-done','进行中':'st-doing','预警':'st-warn','延期':'st-delay','未开始':'st-idle','暂停':'st-idle','取消':'st-idle'}[v]||'';if(key==='priority')return{'P0':'st-p0','P1':'st-p1','P2':'st-p2','P3':'st-p3'}[v]||'';if(key==='risk')return{'高':'st-delay','中':'st-warn','低':'st-done'}[v]||'';if(key==='ontime'){if(v==='按期')return'st-done';if(v==='延期完成')return'st-delay'}if(key==='overdue'&&parseInt(v,10)>0)return'st-delay';if(key==='progress'){const n=pct(v);if(n===100)return'st-done';if(n===0)return'st-idle'}return''}
+function escapeHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function renderControl(key,value){
+  if(key==='idx'||key==='ontime'||key==='overdue')return escapeHtml(value);
+  if(key==='code')return `<input type="text" class="cell-input cell-text" data-key="code" value="${escapeHtml(value)}" placeholder="手动填写">`;
+  if(key==='detailName')return `<input type="text" class="cell-input cell-text" data-key="detailName" value="${escapeHtml(value)}" placeholder="手动填写">`;
+  if(key==='remark')return `<input type="text" class="cell-input cell-note" data-key="remark" value="${escapeHtml(value)}" placeholder="手动填写备注，如催办情况、临时说明等">`;
+  if(key==='start'||key==='end'||key==='actual'||key==='newDate'||key==='updateDate'){
+    const v=value||'';
+    return `<input type="date" class="cell-input cell-date" data-key="${key}" value="${escapeHtml(v)}">`;
+  }
+  let opts=(DROPDOWNS[key]||[]).slice();
+  const v=String(value==null?'':value);
+  if(v&&!opts.includes(v))opts.unshift(v);
+  const optsHtml=['<option value="">-- 请选择 --</option>'].concat(
+    opts.map(o=>`<option value="${escapeHtml(o)}"${o===v?' selected':''}>${escapeHtml(o)}</option>`)
+  ).join('');
+  return `<select class="cell-input cell-select" data-key="${key}" title="${escapeHtml(v)}">${optsHtml}</select>`;
+}
+
+function renderHead(){
+  document.getElementById('colgroup').innerHTML=COLS.map(c=>`<col style="width:${c.w}px">`).join('');
+  document.getElementById('groupRow').innerHTML=GROUPS.map(g=>`<th colspan="${g.span}">${g.name}</th>`).join('');
+  document.getElementById('headerRow').innerHTML=COLS.map(c=>`<th>${c.label}</th>`).join('');
+  const total=COLS.reduce((s,c)=>s+c.w,0);
+  document.getElementById('mainTable').style.width=total+'px';
+}
+function renderBody(){
+  const tbody=document.getElementById('tbody');
+  DATA.forEach(row=>{if(!row.status||!String(row.status).trim())row.status=calcStatus(row)});
+  tbody.innerHTML=DATA.map((row,i)=>{
+    const view=Object.assign({},row,{idx:i+1,ontime:calcOntime(row),overdue:calcOverdue(row)});
+    const tds=COLS.map(c=>{
+      const v=view[c.key]==null?'':view[c.key];
+      const colorCls=cellColorClass(c.key,v);
+      const content=renderControl(c.key,v);
+      return `<td class="${c.cls} ${colorCls}" data-key="${c.key}">${content}</td>`;
+    }).join('');
+    return `<tr data-i="${i}">${tds}</tr>`;
+  }).join('');
+}
+function renderAll(keepSel){
+  const keep=keepSel?selectedRow:-1;
+  renderHead();renderBody();renderStats(false);
+  selectedRow=keep;
+  if(selectedRow>=0&&selectedRow<DATA.length){
+    const tr=document.querySelector(`#tbody tr[data-i="${selectedRow}"]`);
+    if(tr)tr.classList.add('selected');
+  }
+}
+
+function updateRowStatus(i,forceAuto){
+  const tr=document.querySelector(`#tbody tr[data-i="${i}"]`);
+  if(!tr)return;
+  const row=DATA[i];
+  if(forceAuto){row.status=calcStatus(row);}
+  const statusTd=tr.querySelector(`td[data-key="status"]`);
+  if(statusTd){
+    const col=COLS.find(c=>c.key==='status');
+    statusTd.className=(col?col.cls:'c-center')+' '+cellColorClass('status',row.status);
+    const sel=statusTd.querySelector('select[data-key="status"]');
+    if(sel){sel.value=row.status;sel.title=row.status;}
+  }
+  ['ontime','overdue'].forEach(key=>{
+    const td=tr.querySelector(`td[data-key="${key}"]`);
+    if(td){
+      const v=key==='ontime'?calcOntime(row):calcOverdue(row);
+      const col=COLS.find(c=>c.key===key);
+      td.className=(col?col.cls:'c-center')+' '+cellColorClass(key,v);
+      td.textContent=v===0?'0':v;
+    }
+  });
+}
+
+let liveTimer=null;
+function refreshStats(flash){
+  renderStats(!!flash);
+  const tag=document.getElementById('liveTag');
+  if(tag){
+    tag.classList.add('show');
+    clearTimeout(liveTimer);
+    liveTimer=setTimeout(()=>tag.classList.remove('show'),900);
+  }
+}
+
+const tbody=document.getElementById('tbody');
+
+tbody.addEventListener('change',e=>{
+  const el=e.target;
+  if(!el.classList.contains('cell-input'))return;
+  const td=el.closest('td');
+  if(!td)return;
+  const tr=td.parentElement;
+  const i=+tr.dataset.i;
+  const key=td.dataset.key;
+  if(!DATA[i])return;
+  DATA[i][key]=el.value;
+  DATA[i].updatedAt=Date.now();
+  if(key!=='code'&&key!=='remark')el.title=el.value;
+
+  if(key==='status'){
+    const col=COLS.find(c=>c.key==='status');
+    td.className=(col?col.cls:'c-center')+' '+cellColorClass('status',el.value);
+  }
+  else{
+    const col=COLS.find(c=>c.key===key);
+    if(col)td.className=(col.cls||'c-center')+' '+cellColorClass(key,el.value);
+  }
+
+  if(key==='progress'||key==='start'||key==='end'||key==='actual'||key==='newDate'){
+    updateRowStatus(i,true);
+  }
+  else if(key!=='status'){
+    updateRowStatus(i,false);
+  }
+  refreshStats(true);
+  saveLocal();
+});
+
+tbody.addEventListener('input',e=>{
+  const el=e.target;
+  if(!(el.classList.contains('cell-text')||el.classList.contains('cell-note')))return;
+  const td=el.closest('td');
+  if(!td)return;
+  const tr=td.parentElement;
+  const i=+tr.dataset.i;
+  if(DATA[i])DATA[i][el.dataset.key]=el.value;
+  saveLocal();
+});
+tbody.addEventListener('blur',e=>{
+  if(pendingRemoteData){
+    const remoteRows=pendingRemoteData;
+    pendingRemoteData=null;
+    applyRemoteData(remoteRows);
+  }
+  const el=e.target;
+  if(!(el.classList.contains('cell-text')||el.classList.contains('cell-note')))return;
+  refreshStats(false);
+  saveLocal(true);
+},true);
+
+tbody.addEventListener('click',e=>{
+  const td=e.target.closest('td');
+  if(!td)return;
+  const tr=td.parentElement;
+  const i=+tr.dataset.i;
+  if(td.dataset.key==='idx'){
+    if(selectedRow===i){selectedRow=-1;tr.classList.remove('selected')}
+    else{[...tbody.rows].forEach(r=>r.classList.remove('selected'));selectedRow=i;tr.classList.add('selected')}
+  }
+});
+
+document.getElementById('btnAdd').onclick=()=>{
+  const blank={
+    _id:(typeof crypto!=='undefined'&&crypto.randomUUID)?crypto.randomUUID():('id_'+Date.now()+'_'+Math.floor(Math.random()*1e6)),
+    code:'',module:'综合行政',type:'日常例行',source:'周计划',
+    owner:'王旭',position:'部门负责人',support:'无',
+    priority:'P2',progress:'0%',status:'未开始',reasonType:'无',risk:'低',
+    start:fmtDate(today()),end:fmtDate(today()),updateDate:fmtDate(today()),
+    remark:'',need:'无',leader:'同意',impact:'无',action:'无',reason:'无',
+    deliverable:'',name:'',detailName:'',milestone:'',actual:'',newDate:''
+  };
+  DATA.push(blank);
+  renderAll();
+  saveLocal(true);
+  const wrap=document.querySelector('.table-wrap');
+  wrap.scrollTop=wrap.scrollHeight;
+  const lastRow=document.querySelector(`#tbody tr[data-i="${DATA.length-1}"]`);
+  if(lastRow){
+    const codeInput=lastRow.querySelector('input[data-key="code"]');
+    if(codeInput)setTimeout(()=>codeInput.focus(),50);
+  }
+};
+
+document.getElementById('btnDel').onclick=()=>{
+  if(selectedRow<0){alert('请先点击左侧「序号」单元格选中要删除的行');return}
+  if(!confirm('确定删除第 '+(selectedRow+1)+' 行任务吗？'))return;
+  const removed=DATA[selectedRow];
+  DATA.splice(selectedRow,1);
+  if(removed&&removed._id){
+    const deleted=loadDeletedIds();
+    deleted.push(removed._id);
+    saveDeletedIds(deleted);
+  }
+  renderAll();
+  saveLocal(true);
+};
+
+document.getElementById('btnReset').onclick=()=>{
+  if(!confirm('确定恢复为示例数据？当前编辑内容与本地保存都将被覆盖。'))return;
+  DATA=ensureDataMeta(JSON.parse(JSON.stringify(SAMPLE)));
+  clearLocal();
+  renderAll();
+  saveLocal(true);
+};
+
+document.getElementById('btnClearLocal').onclick=()=>{
+  if(!confirm('确定清除本机浏览器中保存的数据吗？\n清除后刷新页面将回到示例数据。\n建议先点「导出数据」做备份。'))return;
+  clearLocal();
+  DATA=ensureDataMeta(JSON.parse(JSON.stringify(SAMPLE)));
+  renderAll();
+  setSaveStatus('本地保存已清除','saving');
+};
+
+document.getElementById('btnPrint').onclick=()=>window.print();
+
+/* ============ 导出 / 导入 JSON ============ */
+document.getElementById('btnExportJson').onclick=()=>{
+  try{
+    const payload={
+      app:'摩洛哥拉巴特高铁隧洞项目综合管理部-工作计划与完成进度跟踪表',
+      version:1,
+      exportTime:new Date().toISOString(),
+      count:DATA.length,
+      data:DATA
+    };
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    const d=new Date();
+    const stamp=d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'_'+String(d.getHours()).padStart(2,'0')+String(d.getMinutes()).padStart(2,'0');
+    a.href=url;
+    a.download='综合管理部_工作计划数据_'+stamp+'.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    setSaveStatus('已导出 '+DATA.length+' 条数据','saved');
+  }catch(e){
+    alert('导出失败：'+e.message);
+  }
+};
+
+document.getElementById('btnImportJson').onclick=()=>{
+  document.getElementById('fileImport').click();
+};
+document.getElementById('fileImport').addEventListener('change',e=>{
+  const file=e.target.files&&e.target.files[0];
+  e.target.value='';
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    try{
+      const obj=JSON.parse(ev.target.result);
+      const arr=Array.isArray(obj)?obj:(obj&&Array.isArray(obj.data)?obj.data:null);
+      if(!arr||!arr.length){alert('文件中未找到有效数据');return}
+      const mode=confirm(
+        '检测到 '+arr.length+' 条数据。\n\n'+
+        '点击「确定」= 覆盖当前数据（推荐，用于从同事那里同步最新版）\n'+
+        '点击「取消」= 与当前数据合并（按任务编号去重，本机已有的保留）'
+      );
+      arr.forEach(r=>{if(r&&typeof r.updatedAt!=='number')r.updatedAt=Date.now();});
+      if(mode){
+        DATA=ensureDataMeta(arr);
+      }else{
+        const map=new Map();
+        arr.forEach(r=>{const k=(r.code||'').trim()||('__'+Math.random());map.set(k,r)});
+        DATA.forEach(r=>{const k=(r.code||'').trim()||('__'+Math.random());map.set(k,r)});
+        DATA=ensureDataMeta(Array.from(map.values()));
+      }
+      renderAll();
+      saveLocal(true);
+      alert('导入完成，当前共 '+DATA.length+' 条数据，已自动保存。');
+    }catch(err){
+      alert('导入失败：'+err.message);
+    }
+  };
+  reader.readAsText(file,'utf-8');
+});
+
+/* ============ 统计看板 ============ */
+function collectComputed(){return DATA.map((row,i)=>Object.assign({},row,{idx:i+1,ontime:calcOntime(row),overdue:calcOverdue(row)}))}
+
+function renderStats(flash){
+  const rows=collectComputed();const total=rows.length;
+  const cnt=s=>rows.filter(r=>r.status===s).length;
+  const done=cnt('已完成'),doing=cnt('进行中'),warn=cnt('预警'),delay=cnt('延期'),idle=cnt('未开始');
+  const rate=total?Math.round(done/total*100):0;
+  const avgProg=total?Math.round(rows.reduce((s,r)=>s+pct(r.progress),0)/total):0;
+  const totalOverdue=rows.reduce((s,r)=>s+(r.overdue||0),0);
+
+  document.getElementById('kpiBox').innerHTML=`
+    <div class="kpi-item"><div class="num">${total}</div><div class="lbl">任务总数</div></div>
+    <div class="kpi-item green"><div class="num">${done}</div><div class="lbl">已完成</div></div>
+    <div class="kpi-item"><div class="num">${doing}</div><div class="lbl">进行中</div></div>
+    <div class="kpi-item orange"><div class="num">${warn}</div><div class="lbl">预警</div></div>
+    <div class="kpi-item red"><div class="num">${delay}</div><div class="lbl">延期</div></div>
+    <div class="kpi-item"><div class="num">${idle}</div><div class="lbl">未开始</div></div>
+    <div class="kpi-item green"><div class="num">${rate}%</div><div class="lbl">按期完成率</div></div>
+    <div class="kpi-item"><div class="num">${avgProg}%</div><div class="lbl">平均进度</div></div>
+    <div class="kpi-item red"><div class="num">${totalOverdue}</div><div class="lbl">逾期天数合计</div></div>`;
+
+  const byOwner={};
+  rows.forEach(r=>{const k=r.owner||'未指定';byOwner[k]=byOwner[k]||{total:0,done:0,delay:0,prog:0};byOwner[k].total++;if(r.status==='已完成')byOwner[k].done++;if(r.status==='延期')byOwner[k].delay++;byOwner[k].prog+=pct(r.progress)});
+  const ownerRows=Object.keys(byOwner).map(k=>{const o=byOwner[k];const rate=o.total?Math.round(o.done/o.total*100):0;const avg=Math.round(o.prog/o.total);return`<tr><td style="text-align:left">${escapeHtml(k)}</td><td>${o.total}</td><td>${o.done}</td><td style="color:${o.delay?'#c0392b':'#1e8449'};font-weight:${o.delay?700:400}">${o.delay}</td><td>${avg}%</td><td><span class="bar"><i style="width:${rate}%"></i></span> ${rate}%</td></tr>`}).join('');
+
+  const byModule={};
+  rows.forEach(r=>{const k=r.module||'未分类';byModule[k]=byModule[k]||{total:0,done:0,delay:0};byModule[k].total++;if(r.status==='已完成')byModule[k].done++;if(r.status==='延期')byModule[k].delay++});
+  const moduleRows=Object.keys(byModule).map(k=>{const m=byModule[k];const rate=m.total?Math.round(m.done/m.total*100):0;return`<tr><td style="text-align:left">${escapeHtml(k)}</td><td>${m.total}</td><td>${m.done}</td><td style="color:${m.delay?'#c0392b':'#1e8449'};font-weight:${m.delay?700:400}">${m.delay}</td><td><span class="bar"><i style="width:${rate}%"></i></span> ${rate}%</td></tr>`}).join('');
+
+  const byReason={};
+  DATA.forEach((r,i)=>{
+    const rt=(r.reasonType||'').trim();
+    if(r.status==='已完成'||!rt||rt==='无')return;
+    if(!byReason[rt])byReason[rt]={count:0,tasks:[]};
+    byReason[rt].count++;
+    const label=(r.code&&r.code.trim())||(r.name&&r.name.trim())||('第'+(i+1)+'行');
+    byReason[rt].tasks.push(label);
+  });
+  const reasonTotal=Object.values(byReason).reduce((a,b)=>a+b.count,0);
+  const sortedReasons=Object.keys(byReason).sort((a,b)=>byReason[b].count-byReason[a].count);
+  const reasonRows=sortedReasons.map((k,idx)=>{
+    const o=byReason[k];const p=reasonTotal?Math.round(o.count/reasonTotal*100):0;
+    const tasks=o.tasks.filter(Boolean);
+    const taskStr=tasks.length<=3?tasks.join('、'):tasks.slice(0,3).join('、')+' 等'+tasks.length+'项';
+    const rankCls=idx===0?'r1':idx===1?'r2':idx===2?'r3':'';
+    return `<tr${idx===0?' class="top1"':''}>
+      <td style="width:26px"><span class="rank ${rankCls}">${idx+1}</span></td>
+      <td style="text-align:left;white-space:nowrap">${escapeHtml(k)}</td>
+      <td style="width:46px">${o.count}</td>
+      <td style="width:100px"><span class="bar"><i style="width:${p}%"></i></span> ${p}%</td>
+      <td class="task-list">${escapeHtml(taskStr)}</td>
+    </tr>`;
+  }).join('')||'<tr><td colspan="5" style="color:#9ab;padding:14px">暂无未完成事项</td></tr>';
+
+  const byImpact={};
+  DATA.forEach((r,i)=>{
+    const im=(r.impact||'').trim();
+    if(r.status==='已完成'||!im||im==='无')return;
+    if(!byImpact[im])byImpact[im]={count:0,tasks:[]};
+    byImpact[im].count++;
+    const label=(r.code&&r.code.trim())||(r.name&&r.name.trim())||('第'+(i+1)+'行');
+    byImpact[im].tasks.push(label);
+  });
+  const impactTotal=Object.values(byImpact).reduce((a,b)=>a+b.count,0);
+  const sortedImpacts=Object.keys(byImpact).sort((a,b)=>byImpact[b].count-byImpact[a].count);
+  const impactRows=sortedImpacts.map((k,idx)=>{
+    const o=byImpact[k];const p=impactTotal?Math.round(o.count/impactTotal*100):0;
+    const tasks=o.tasks.filter(Boolean);
+    const taskStr=tasks.length<=3?tasks.join('、'):tasks.slice(0,3).join('、')+' 等'+tasks.length+'项';
+    const rankCls=idx===0?'r1':idx===1?'r2':idx===2?'r3':'';
+    return `<tr${idx===0?' class="top1"':''}>
+      <td style="width:26px"><span class="rank ${rankCls}">${idx+1}</span></td>
+      <td style="text-align:left">${escapeHtml(k)}</td>
+      <td style="width:46px">${o.count}</td>
+      <td style="width:100px"><span class="bar"><i style="width:${p}%"></i></span> ${p}%</td>
+      <td class="task-list">${escapeHtml(taskStr)}</td>
+    </tr>`;
+  }).join('')||'<tr><td colspan="5" style="color:#9ab;padding:14px">暂无未完成事项</td></tr>';
+
+  document.getElementById('statGrid').innerHTML=`
+    <div class="stat-card">
+      <h4>按责任人统计<span class="tag">共 ${Object.keys(byOwner).length} 人</span></h4>
+      <table><thead><tr><th>责任人</th><th>任务数</th><th>已完成</th><th>延期</th><th>平均进度</th><th>完成率</th></tr></thead>
+      <tbody>${ownerRows||'<tr><td colspan="6" style="padding:14px;color:#9ab">暂无数据</td></tr>'}</tbody></table>
+    </div>
+    <div class="stat-card">
+      <h4>按工作模块统计<span class="tag">共 ${Object.keys(byModule).length} 个模块</span></h4>
+      <table><thead><tr><th>工作模块</th><th>任务数</th><th>已完成</th><th>延期</th><th>完成率</th></tr></thead>
+      <tbody>${moduleRows||'<tr><td colspan="5" style="padding:14px;color:#9ab">暂无数据</td></tr>'}</tbody></table>
+    </div>
+    <div class="stat-card">
+      <h4>未完成原因分类统计<span class="tag">共 ${reasonTotal} 项未完成</span></h4>
+      <table><thead><tr><th>排名</th><th>原因分类</th><th>次数</th><th>占比</th><th>涉及任务</th></tr></thead>
+      <tbody>${reasonRows}</tbody></table>
+    </div>
+    <div class="stat-card">
+      <h4>影响评估统计<span class="tag">共 ${impactTotal} 项未完成</span></h4>
+      <table><thead><tr><th>排名</th><th>影响评估</th><th>次数</th><th>占比</th><th>涉及任务</th></tr></thead>
+      <tbody>${impactRows}</tbody></table>
+    </div>`;
+
+  if(flash){
+    const cards=document.querySelectorAll('#statGrid .stat-card');
+    cards.forEach(c=>{c.classList.add('flash');setTimeout(()=>c.classList.remove('flash'),500)});
+  }
+}
+
+/* ============ Excel 导出 ============ */
+const BORDER_XML='<Borders><Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#B4C6E7"/><Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#B4C6E7"/><Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#B4C6E7"/><Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#B4C6E7"/></Borders>';
+function styleXml(id,o){o=o||{};const align=o.align||'Center';const size=o.size||9;let s=`<Style ss:ID="${id}">`;s+=`<Alignment ss:Vertical="Center" ss:Horizontal="${align}" ss:WrapText="1"/>`;if(o.bg)s+=`<Interior ss:Color="${o.bg}" ss:Pattern="Solid"/>`;s+=`<Font ss:FontName="微软雅黑" ss:Size="${size}"`;if(o.bold)s+=' ss:Bold="1"';if(o.color)s+=` ss:Color="${o.color}"`;s+='/>';if(!o.noBorder)s+=BORDER_XML;s+='</Style>';return s}
+function buildStyles(){const S=[];S.push('<Style ss:ID="Default" ss:Name="Normal"><Alignment ss:Vertical="Center"/><Font ss:FontName="微软雅黑" ss:Size="10"/></Style>');S.push(styleXml('sTitle',{size:16,bold:true,color:'#1F4E79',noBorder:true}));S.push(styleXml('sSubtitle',{size:10,color:'#7F7F7F',noBorder:true}));S.push(styleXml('sGroup',{size:10,bold:true,color:'#FFFFFF',bg:'#2E75B6',noBorder:true}));S.push(styleXml('sHeader',{size:10,bold:true,color:'#FFFFFF',bg:'#1F4E79',noBorder:true}));S.push(styleXml('cCenter',{size:9,align:'Center'}));S.push(styleXml('cLeft',{size:9,align:'Left'}));S.push(styleXml('cDone',{size:9,align:'Center',bg:'#C6EFCE',color:'#0B6623',bold:true}));S.push(styleXml('cDoing',{size:9,align:'Center',bg:'#DDEBF7',color:'#1F4E79',bold:true}));S.push(styleXml('cWarn',{size:9,align:'Center',bg:'#FFEB9C',color:'#8A5B00',bold:true}));S.push(styleXml('cDelay',{size:9,align:'Center',bg:'#FFC7CE',color:'#9C0006',bold:true}));S.push(styleXml('cIdle',{size:9,align:'Center',bg:'#F0F0F0',color:'#808080'}));S.push(styleXml('cP0',{size:9,align:'Center',bg:'#FFC7CE',color:'#9C0006',bold:true}));S.push(styleXml('cP1',{size:9,align:'Center',bg:'#FCE4D6',color:'#C55A11',bold:true}));S.push(styleXml('cP2',{size:9,align:'Center',bg:'#DDEBF7',color:'#1F4E79',bold:true}));S.push(styleXml('cP3',{size:9,align:'Center',bg:'#F0F0F0',color:'#595959'}));S.push(styleXml('cTop1',{size:9,align:'Left',bg:'#FDF6E3',bold:true}));return S.join('')}
+function escXml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/\r?\n/g,'&#10;')}
+function dataCell(v){const t=String(v==null?'':v).trim();if(t==='')return{type:'String',v:''};if(/^-?\d+(\.\d+)?$/.test(t))return{type:'Number',v:t};return{type:'String',v:t}}
+function excelStyleForKey(key,val){const v=String(val==null?'':val).trim();if(key==='status')return{'已完成':'cDone','进行中':'cDoing','预警':'cWarn','延期':'cDelay','未开始':'cIdle','暂停':'cIdle','取消':'cIdle'}[v]||'cCenter';if(key==='priority')return{'P0':'cP0','P1':'cP1','P2':'cP2','P3':'cP3'}[v]||'cCenter';if(key==='risk')return{'高':'cDelay','中':'cWarn','低':'cDone'}[v]||'cCenter';if(key==='ontime'){if(v==='按期')return'cDone';if(v==='延期完成')return'cDelay';return'cCenter'}if(key==='overdue'&&parseInt(v,10)>0)return'cDelay';if(key==='progress'&&pct(v)===100)return'cDone';return LEFT_KEYS.has(key)?'cLeft':'cCenter'}
+function xmlSheet(name,colWidths,rowsXml,freezeRows){let s=`<Worksheet ss:Name="${escXml(name)}">`;s+=`<Table ss:DefaultRowHeight="18">`;colWidths.forEach(w=>{s+=`<Column ss:AutoFitWidth="0" ss:Width="${w}"/>`});s+=rowsXml;s+=`</Table>`;s+=`<WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">`;s+=`<PageSetup><Layout x:Orientation="Landscape"/><PageMargins x:Bottom="0.5" x:Left="0.3" x:Right="0.3" x:Top="0.5"/></PageSetup>`;s+=`<Print><ValidPrinterInfo/><PaperSizeIndex>9</PaperSizeIndex><HorizontalResolution>600</HorizontalResolution><VerticalResolution>600</VerticalResolution></Print>`;s+=`<FitToPage/><ProtectObjects>False</ProtectObjects><ProtectScenarios>False</ProtectScenarios>`;if(freezeRows){s+=`<FreezePanes/><FrozenNoSplit/><SplitHorizontal>${freezeRows}</SplitHorizontal><TopRowBottomPane>${freezeRows}</TopRowBottomPane><ActivePane>2</ActivePane>`}s+=`</WorksheetOptions></Worksheet>`;return s}
+function buildMainSheet(){const rows=collectComputed();const widths=COLS.map(c=>Math.round(c.w*0.76));const todayStr=fmtDate(today());const period=todayStr.slice(0,4)+'年第'+getWeekNumber(today())+'周';let xml='';xml+=`<Row ss:Height="30"><Cell ss:MergeAcross="${COLS.length-1}" ss:StyleID="sTitle"><Data ss:Type="String">摩洛哥拉巴特高铁隧洞项目综合管理部　工作计划与完成进度跟踪表</Data></Cell></Row>`;const sub=`统计周期：${period}　｜　导出日期：${todayStr}　｜　编制：综合管理部　｜　更新频次：每周一更新进度，每周天上午补填未完成原因`;xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="${COLS.length-1}" ss:StyleID="sSubtitle"><Data ss:Type="String">${escXml(sub)}</Data></Cell></Row>`;xml+=`<Row ss:Height="6"></Row>`;xml+='<Row ss:Height="22">';GROUPS.forEach(g=>{xml+=`<Cell ss:MergeAcross="${g.span-1}" ss:StyleID="sGroup"><Data ss:Type="String">${escXml(g.name)}</Data></Cell>`});xml+='</Row>';xml+='<Row ss:Height="34">';COLS.forEach(c=>{xml+=`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${escXml(c.label)}</Data></Cell>`});xml+='</Row>';rows.forEach(row=>{xml+='<Row ss:Height="42">';COLS.forEach(c=>{const v=row[c.key]==null?'':row[c.key];const st=excelStyleForKey(c.key,v);const d=dataCell(v);xml+=`<Cell ss:StyleID="${st}"><Data ss:Type="${d.type}">${escXml(d.v)}</Data></Cell>`});xml+='</Row>'});return xmlSheet('工作计划与进度总表',widths,xml,5)}
+function buildStatSheet(){
+  const rows=collectComputed();const total=rows.length;
+  const cnt=s=>rows.filter(r=>r.status===s).length;
+  const done=cnt('已完成'),doing=cnt('进行中'),warn=cnt('预警'),delay=cnt('延期'),idle=cnt('未开始');
+  const rate=total?Math.round(done/total*100):0;
+  const avgProg=total?Math.round(rows.reduce((s,r)=>s+pct(r.progress),0)/total):0;
+  const totalOverdue=rows.reduce((s,r)=>s+(r.overdue||0),0);
+  const widths=[80,140,60,80,260];
+  let xml='';
+  xml+=`<Row ss:Height="28"><Cell ss:MergeAcross="4" ss:StyleID="sTitle"><Data ss:Type="String">汇总统计看板</Data></Cell></Row>`;
+  xml+=`<Row ss:Height="8"></Row>`;
+  xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="4" ss:StyleID="sGroup"><Data ss:Type="String">一、整体指标</Data></Cell></Row>`;
+  const kpiPairs=[['任务总数',total,'已完成',done,'进行中',doing],['预警',warn,'延期',delay,'未开始',idle],['按期完成率',rate+'%','平均进度',avgProg+'%','逾期天数合计',totalOverdue]];
+  xml+='<Row ss:Height="24">'+['指标','数值','指标','数值','指标','数值'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';
+  kpiPairs.forEach(p=>{xml+='<Row ss:Height="22">';p.forEach((v,idx)=>{const isLabel=idx%2===0;xml+=`<Cell ss:StyleID="${isLabel?'cLeft':'cCenter'}"><Data ss:Type="${typeof v==='number'?'Number':'String'}">${escXml(v)}</Data></Cell>`});xml+='</Row>'});
+  xml+=`<Row ss:Height="10"></Row>`;
+
+  const byOwner={};
+  rows.forEach(r=>{const k=r.owner||'未指定';byOwner[k]=byOwner[k]||{total:0,done:0,delay:0,prog:0};byOwner[k].total++;if(r.status==='已完成')byOwner[k].done++;if(r.status==='延期')byOwner[k].delay++;byOwner[k].prog+=pct(r.progress)});
+  xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="4" ss:StyleID="sGroup"><Data ss:Type="String">二、按责任人统计</Data></Cell></Row>`;
+  xml+='<Row ss:Height="24">'+['责任人','任务总数','已完成','延期','平均进度','完成率'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';
+  Object.keys(byOwner).forEach(k=>{const o=byOwner[k];const rr=o.total?Math.round(o.done/o.total*100):0;const ap=Math.round(o.prog/o.total);xml+='<Row ss:Height="22">'+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(k)}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="Number">${o.total}</Data></Cell>`+`<Cell ss:StyleID="cDone"><Data ss:Type="Number">${o.done}</Data></Cell>`+`<Cell ss:StyleID="${o.delay?'cDelay':'cCenter'}"><Data ss:Type="Number">${o.delay}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${ap}%</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${rr}%</Data></Cell>`+'</Row>'});
+  xml+=`<Row ss:Height="10"></Row>`;
+
+  const byModule={};
+  rows.forEach(r=>{const k=r.module||'未分类';byModule[k]=byModule[k]||{total:0,done:0,delay:0};byModule[k].total++;if(r.status==='已完成')byModule[k].done++;if(r.status==='延期')byModule[k].delay++});
+  xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="4" ss:StyleID="sGroup"><Data ss:Type="String">三、按工作模块统计</Data></Cell></Row>`;
+  xml+='<Row ss:Height="24">'+['工作模块','任务总数','已完成','延期','完成率'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';
+  Object.keys(byModule).forEach(k=>{const m=byModule[k];const rr=m.total?Math.round(m.done/m.total*100):0;xml+='<Row ss:Height="22">'+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(k)}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="Number">${m.total}</Data></Cell>`+`<Cell ss:StyleID="cDone"><Data ss:Type="Number">${m.done}</Data></Cell>`+`<Cell ss:StyleID="${m.delay?'cDelay':'cCenter'}"><Data ss:Type="Number">${m.delay}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${rr}%</Data></Cell>`+'</Row>'});
+  xml+=`<Row ss:Height="10"></Row>`;
+
+  const byReason={};
+  DATA.forEach((r,i)=>{const rt=(r.reasonType||'').trim();if(r.status==='已完成'||!rt||rt==='无')return;if(!byReason[rt])byReason[rt]={count:0,tasks:[]};byReason[rt].count++;const label=(r.code&&r.code.trim())||(r.name&&r.name.trim())||('第'+(i+1)+'行');byReason[rt].tasks.push(label)});
+  const rTotal=Object.values(byReason).reduce((a,b)=>a+b.count,0);
+  xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="4" ss:StyleID="sGroup"><Data ss:Type="String">四、未完成原因分类统计</Data></Cell></Row>`;
+  xml+='<Row ss:Height="24">'+['排名','原因分类','次数','占比','涉及任务'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';
+  const sortedReasons=Object.keys(byReason).sort((a,b)=>byReason[b].count-byReason[a].count);
+  if(sortedReasons.length===0){xml+='<Row ss:Height="22"><Cell ss:MergeAcross="4" ss:StyleID="cLeft"><Data ss:Type="String">暂无未完成事项</Data></Cell></Row>'}
+  else{sortedReasons.forEach((k,idx)=>{const o=byReason[k];const p=rTotal?Math.round(o.count/rTotal*100):0;const tasks=o.tasks.filter(Boolean);const taskStr=tasks.length<=3?tasks.join('、'):tasks.slice(0,3).join('、')+' 等'+tasks.length+'项';const st=idx===0?'cTop1':'cLeft';xml+='<Row ss:Height="22">'+`<Cell ss:StyleID="${idx===0?'cTop1':'cCenter'}"><Data ss:Type="Number">${idx+1}</Data></Cell>`+`<Cell ss:StyleID="${st}"><Data ss:Type="String">${escXml(k)}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="Number">${o.count}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${p}%</Data></Cell>`+`<Cell ss:StyleID="${st}"><Data ss:Type="String">${escXml(taskStr)}</Data></Cell>`+'</Row>'})}
+  xml+=`<Row ss:Height="10"></Row>`;
+
+  const byImpact={};
+  DATA.forEach((r,i)=>{const im=(r.impact||'').trim();if(r.status==='已完成'||!im||im==='无')return;if(!byImpact[im])byImpact[im]={count:0,tasks:[]};byImpact[im].count++;const label=(r.code&&r.code.trim())||(r.name&&r.name.trim())||('第'+(i+1)+'行');byImpact[im].tasks.push(label)});
+  const iTotal=Object.values(byImpact).reduce((a,b)=>a+b.count,0);
+  xml+=`<Row ss:Height="20"><Cell ss:MergeAcross="4" ss:StyleID="sGroup"><Data ss:Type="String">五、影响评估统计</Data></Cell></Row>`;
+  xml+='<Row ss:Height="24">'+['排名','影响评估','次数','占比','涉及任务'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';
+  const sortedImpacts=Object.keys(byImpact).sort((a,b)=>byImpact[b].count-byImpact[a].count);
+  if(sortedImpacts.length===0){xml+='<Row ss:Height="22"><Cell ss:MergeAcross="4" ss:StyleID="cLeft"><Data ss:Type="String">暂无未完成事项</Data></Cell></Row>'}
+  else{sortedImpacts.forEach((k,idx)=>{const o=byImpact[k];const p=iTotal?Math.round(o.count/iTotal*100):0;const tasks=o.tasks.filter(Boolean);const taskStr=tasks.length<=3?tasks.join('、'):tasks.slice(0,3).join('、')+' 等'+tasks.length+'项';const st=idx===0?'cTop1':'cLeft';xml+='<Row ss:Height="22">'+`<Cell ss:StyleID="${idx===0?'cTop1':'cCenter'}"><Data ss:Type="Number">${idx+1}</Data></Cell>`+`<Cell ss:StyleID="${st}"><Data ss:Type="String">${escXml(k)}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="Number">${o.count}</Data></Cell>`+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${p}%</Data></Cell>`+`<Cell ss:StyleID="${st}"><Data ss:Type="String">${escXml(taskStr)}</Data></Cell>`+'</Row>'})}
+  return xmlSheet('汇总统计看板',widths,xml,3);
+}
+function buildDictSheet(){
+  const reasons=[['R01','业主/相关方回复延迟','业主、SGTM、相关方函件或回复超期'],['R02','当地政府部门办理周期长','签证、居留、劳工、税务等部门办理慢'],['R03','跨部门材料/数据未按时提供','考勤、绩效、费用等材料未按时提交'],['R04','领导临时交办紧急事项','临时任务占用原计划资源'],['R05','大型接待/会议临时增加','公务接待、公司级会议临时增加'],['R06','翻译任务临时插入','重要翻译任务临时插入，资源被占用'],['R07','车辆调度冲突或故障','车辆冲突、故障，无法保障用车'],['R08','食堂物资/供应商供货延迟','食材、生活物资供应商延迟'],['R09','水电燃气突发故障','营地水电燃气突发故障'],['R10','责任人请假/出差/借调','责任人不在岗'],['R11','审批流程/签字未完成','用印、合同、报销等流程未走完'],['R12','预算/费用未批复','相关费用预算未审批'],['R13','材料不齐需补充','材料缺失或信息有误，需退回补充'],['R14','系统/网络/通讯故障','OA、考勤机、通讯、社保系统故障'],['R15','签证/劳工/税务政策变化','政策调整需重新准备材料'],['R16','不可抗力（天气/交通/突发）','天气、交通、突发公共事件'],['R17','其他','需在备注中具体说明']];
+  const impacts=[['影响01','影响公司级会议/汇报材料按时提交','会议材料、汇报材料无法按期提交'],['影响02','影响公务接待执行与项目对外形象','接待无法按方案执行'],['影响03','影响中方人员薪资按时发放','中方员工薪资发放延后'],['影响04','影响摩方雇员薪资按时发放','摩方员工薪资发放延后'],['影响05','影响员工签证/居留合规','存在出入境风险'],['影响06','影响劳动合同合规','存在用工法律风险'],['影响07','影响营地正常运转与员工生活保障','营地运转受影响'],['影响08','影响食堂正常供餐与员工满意度','食堂保障受影响'],['影响09','影响车辆正常调度与接待用车保障','用车无法保障'],['影响10','影响函件流转时效与归档完整性','函件收发归档延迟'],['影响11','影响重要会议/现场翻译支持','翻译支持不到位'],['影响12','影响公文流转与档案归档完整性','公文档案延迟'],['影响13','影响与业主/相关方的关系维护','对外关系受影响'],['影响14','影响部门内部协作效率与任务衔接','内部协同效率下降'],['影响15','影响固定资产账实一致与审计合规','资产账实不符风险'],['影响16','影响办公用品/应急物资供应保障','物资供应紧张'],['影响17','存在审计、合规或纪检监察风险','合规风险'],['影响18','影响员工满意度与团队稳定性','员工满意度下降']];
+  const actions=[['措施01','已电话/邮件/函件催办，并明确回复时限','主动催办'],['措施02','已协调当地机构加快办理，安排专人跟进','协调当地机构'],['措施03','已向领导汇报并请示协调相关部门','请示汇报'],['措施04','已启动备用供应商/备用渠道同步推进','备用渠道'],['措施05','全员协同支援，临时调整分工保障重点任务','全员协同'],['措施06','先完成可推进部分，剩余待条件具备后补办','分段推进'],['措施07','已调整计划顺延处理，并同步更新节点','顺延处理'],['措施08','已准备两套方案备选，视条件选择执行','备选方案'],['措施09','安排专人每日跟进，进度实时反馈','专人跟进'],['措施10','利用业余时间加班推进，压缩办理周期','加班推进'],['措施11','调整任务优先级，先处理紧急事项','调整优先级'],['措施12','已联系设备物资部协同处理','协同物资部'],['措施13','已联系财务部加快审批/付款','协同财务部'],['措施14','已联系法务部确认合规口径','协同法务部'],['措施15','已准备补办材料，条件满足即报','补办材料'],['措施16','已启动应急保障方案（车辆/食堂/住宿等）','应急保障'],['措施17','已开展内部培训或流程优化，避免再次发生','流程优化'],['措施18','其他','需在备注中具体说明']];
+  const widths=[80,320,420];
+  let xml='';
+  const buildTable=(title,head,data)=>{let s=`<Row ss:Height="20"><Cell ss:MergeAcross="2" ss:StyleID="sGroup"><Data ss:Type="String">${escXml(title)}</Data></Cell></Row>`;s+='<Row ss:Height="24">'+head.map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${escXml(h)}</Data></Cell>`).join('')+'</Row>';data.forEach(d=>{s+='<Row ss:Height="24">'+`<Cell ss:StyleID="cCenter"><Data ss:Type="String">${escXml(d[0])}</Data></Cell>`+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(d[1])}</Data></Cell>`+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(d[2])}</Data></Cell>`+'</Row>'});s+=`<Row ss:Height="10"></Row>`;return s};
+  xml+=`<Row ss:Height="28"><Cell ss:MergeAcross="2" ss:StyleID="sTitle"><Data ss:Type="String">综合管理部未完成原因、影响、措施字典</Data></Cell></Row>`;
+  xml+=`<Row ss:Height="8"></Row>`;
+  xml+=buildTable('一、原因分类（下拉来源）',['编码','原因分类','说明 / 综合部常见场景'],reasons);
+  xml+=buildTable('二、影响评估（下拉来源）',['编码','影响评估','说明'],impacts);
+  xml+=buildTable('三、补救措施（下拉来源）',['编码','补救措施','说明'],actions);
+  return xmlSheet('原因影响措施字典',widths,xml,3);
+}
+function buildHelpSheet(){const help=[['一、表格用途','用于摩洛哥拉巴特高铁隧洞项目综合管理部内部任务的计划、执行、进度跟踪与未完成原因留痕，作为周例会与绩效沟通依据。'],['二、更新频次','每周一由责任人更新「当前进度、状态、实际完成」；每周天上午，未完成任务必须补填「未完成原因 + 补救措施 + 纠偏后完成时间 + 备注」。'],['三、填写方式','「任务编号」与「备注」需手动填写；「状态」为下拉选项，可手动选择；其余字段均为下拉选择或日期选择器。'],['四、状态联动','修改「当前进度」「计划完成」「实际完成」后，状态会自动更新为推荐值；也可手动覆盖状态。'],['五、数据保存','所有修改自动保存在本机浏览器（localStorage），刷新、关闭页面后重新打开都不会丢失；换电脑或换浏览器请使用「导出数据 / 导入数据」。'],['六、多人协同','如需多人同时编辑，请部署到公司服务器或使用共享表格；本机版本可通过「导出数据」发给同事，或将同事的 JSON 文件用「导入数据」合并。'],['七、工作模块','综合行政、人力资源、文宣党务、印章管理、会议统筹、固定资产、公务接待、部门统筹、文函流转、差旅保障、通讯管理、信息维护、食堂运营、后勤综合、车辆管理、采购支持、营地管理、签证事务、合同管理、翻译支持、属地薪资、外联协调、市场开发、餐饮保障、其他、安全管理。'],['八、任务名称','涵盖人力资源、文宣党务、行政事务、后勤保障、市场外联、翻译、差旅通讯、安全管理、报表汇报等业务场景。其中安全管理相关：安全检查、安全文件宣传、安全资料提交；报表汇报相关：PRP报表报送、月度报表报送、月度汇报、季度资料报送、季度汇报、月度资料报送。'],['九、岗位设置','岗位下拉为：部门负责人、高级主管、副科队长、行政专员。'],['十、协同原则','大型公务接待全员参与统一调度；凡涉及SGTM、业主及相关方、当地人员的事务性翻译协助，全员配合支持。']];const widths=[130,700];let xml='';xml+=`<Row ss:Height="28"><Cell ss:MergeAcross="1" ss:StyleID="sTitle"><Data ss:Type="String">使用说明与填写规范</Data></Cell></Row>`;xml+=`<Row ss:Height="8"></Row>`;xml+='<Row ss:Height="26">'+['项目','说明'].map(h=>`<Cell ss:StyleID="sHeader"><Data ss:Type="String">${h}</Data></Cell>`).join('')+'</Row>';help.forEach(h=>{xml+='<Row ss:Height="46">'+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(h[0])}</Data></Cell>`+`<Cell ss:StyleID="cLeft"><Data ss:Type="String">${escXml(h[1])}</Data></Cell>`+'</Row>'});return xmlSheet('使用说明',widths,xml,3)}
+function buildWorkbook(){let xml='<?xml version="1.0" encoding="UTF-8"?>\n';xml+='<?mso-application progid="Excel.Sheet"?>\n';xml+='<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">\n';xml+='<DocumentProperties xmlns="urn:schemas-microsoft-com:office:office"><Title>摩洛哥拉巴特高铁隧洞项目综合管理部工作计划与完成进度跟踪表</Title><Author>综合管理部</Author></DocumentProperties>\n';xml+='<Styles>'+buildStyles()+'</Styles>\n';xml+=buildMainSheet();xml+=buildStatSheet();xml+=buildDictSheet();xml+=buildHelpSheet();xml+='</Workbook>';return xml}
+function downloadExcel(){try{const xml=buildWorkbook();const blob=new Blob(['\ufeff'+xml],{type:'application/vnd.ms-excel;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='摩洛哥拉巴特高铁隧洞项目综合管理部_工作计划与完成进度跟踪表_'+fmtDate(today())+'.xls';document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(()=>URL.revokeObjectURL(url),1500)}catch(err){console.error(err);alert('导出失败：'+err.message)}}
+document.getElementById('btnExport').onclick=downloadExcel;
+
+/* ============ 初始化 ============ */
+(function init(){
+  const t=today();
+  document.getElementById('todayStr').textContent=fmtDate(t);
+  document.getElementById('period').textContent=fmtDate(t).slice(0,4)+'年第'+getWeekNumber(t)+'周';
+  renderAll();
+  initRemoteSync();
+  bindRemoteListener();
+})();
+</script>
+</body>
+</html>
